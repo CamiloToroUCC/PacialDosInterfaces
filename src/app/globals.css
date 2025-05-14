@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tipografía */
+  --font-inter: "Inter", sans-serif;
+
+  /* Colores */
+  --color-bg-card: #ffffff;
+  --color-bg-footer: #f9fafb;
+  --color-bg-image: #d8d0ee;
+  --color-badge-bg: #e6f4f9;
+  --color-primary-btn: #4267B2;
+  --color-text-black: #000000;
+  --color-text-gray: #6b7280;
+  --border-gray: #F3F4F6;
+
+  /* Radios */
+  --radius-card: 24px;
+  --radius-image: 20px;
+  --radius-btn: 12px;
+  --radius-icon: 4px;
+  --radius-badge: 9999px;
+
+  /* Tamaños de texto */
+  --fs-heading: 40px;
+  --fs-subheading: 24px;
+  --fs-description: 18px;
+  --fs-badge: 16px;
+  --fs-price: 30px;
+  --fs-btn: 20px;
+
+  /* Espaciado */
+  --pad-card: 24px;
+  --pad-btn-x: 32px;
+  --pad-btn-y: 12px;
+
+  /* Sombra */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+@layer components {
+  /* Card principal */
+  .card {
+    @apply relative w-full max-w-[574px] bg-[var(--color-bg-card)]
+           rounded-[var(--radius-card)] shadow-[var(--shadow-card)]
+           overflow-hidden mx-auto;
+  }
+  /* Contenedor de imagen: Padding de 24px lateral y superior, sin padding inferior */
+  .card-image-container {
+    @apply p-[var(--pad-card)] pb-0;
+  }
+  /* Contenedor interno de la imagen: 304px de alto, bordes redondeados de 20px */
+  .card-inner-img {
+    @apply w-full h-[304px] overflow-hidden rounded-[var(--radius-image)];
+  }
+  /* Contenedor del contenido textual */
+  .card-content {
+    @apply p-[var(--pad-card)];
+  }
+  
+  /* Tipografía */
+  .card-heading {
+    /* Main Heading: 40px, Bold, leading-tight (~1.1), text-black, margen inferior 8px */
+    @apply font-sans text-[40px] font-bold leading-tight text-black mb-2;
+  }
+  .card-badge {
+    /* Badge "3 months": 16px, Medium, bg-[#e6f4f9], redondeado, sin margen extra */
+    @apply rounded-full bg-[#e6f4f9] px-4 py-1 font-sans text-base font-medium text-black;
+  }
+  .card-subheading {
+    /* Sub Heading: 24px, Normal, mt-2 y mb-2, color gris (#6b7280) */
+    @apply mt-2 mb-2 font-sans text-2xl font-normal text-[#6b7280];
+  }
+  .card-description {
+    /* Descripción: 18px, leading 1.6, mt-2 (menos separación que antes) */
+    @apply mt-2 font-sans text-lg leading-[1.6] text-[#6b7280];
+  }
+  .price {
+    /* Precio "USD 3": 30px, Bold, text-black */
+    @apply font-sans text-3xl font-bold text-black;
+  }
+  .btn-activate {
+    /* Botón "Activate": 20px, Medium, bg-[#4267B2], padding 32px horizontal y 12px vertical, bordes medianos */
+    @apply font-sans text-xl font-medium text-white bg-[#4267B2]
+           px-8 py-3 rounded-lg hover:bg-blue-700 transition;
+  }
+  
+  /* Iconos de redes (placeholder): 32px, bordes redondeados medianos */
+  .social-icon {
+    @apply w-8 h-8 rounded-md;
+  }
+  
+  /* Footer de la card: fondo gris claro, borde superior, padding de 24px, flex con justify-between */
+  .card-footer {
+    @apply bg-[var(--color-bg-footer)] border-t border-[var(--border-gray)]
+           p-[var(--pad-card)] flex items-center justify-between rounded-b-[var(--radius-card)];
+  }
+}
